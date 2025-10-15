@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class WarAxe implements Weapon {
     String name = "Machado de Guerra";
     int baseDamage = 18;
@@ -23,11 +21,10 @@ public class WarAxe implements Weapon {
 
     @Override
     public boolean canEquip(Character user) {
-        return false; // logica de permissao para equipar
-    }
-
-    @Override
-    public void attack(Character attacker, List<Character> targets) {
-        System.out.println("atacado"); // logica para dano
+        if (user.strength < 15) {
+            System.out.println("Força insuficiente para equipar essa arma!");
+            return false;
+        }
+        return true;
     }
 }

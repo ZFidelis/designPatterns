@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class ShadowDagger implements Weapon {
     String name = "Adaga Sombria";
     int baseDamage = 10;
@@ -23,11 +21,10 @@ public class ShadowDagger implements Weapon {
 
     @Override
     public boolean canEquip(Character user) {
-        return false; // logica de permissao para equipar
-    }
-
-    @Override
-    public void attack(Character attacker, List<Character> targets) {
-        System.out.println("atacado"); // logica para dano
+        if (user.dexterity < 12) {
+            System.out.println("Destreza insuficiente para equipar essa arma!");
+            return false;
+        }
+        return true;
     }
 }

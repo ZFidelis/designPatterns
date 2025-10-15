@@ -1,10 +1,7 @@
-import java.util.List;
-
 public class ElvenBow implements Weapon {
     String name = "Arco Élfico";
     int baseDamage = 12;
     int manaCost = 15;
-
 
     @Override
     public String getName() {
@@ -23,11 +20,10 @@ public class ElvenBow implements Weapon {
 
     @Override
     public boolean canEquip(Character user) {
-        return false; // logica de permissao para equipar
-    }
-
-    @Override
-    public void attack(Character attacker, List<Character> targets) {
-        System.out.println("atacado"); // logica para dano
+        if (user.dexterity < 8) {
+            System.out.println("Destreza insuficiente para equipar essa arma!");
+            return false;
+        }
+        return true;
     }
 }

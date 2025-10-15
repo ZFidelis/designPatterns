@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class LongSword implements Weapon {
     String name = "Espada Longa";
     int baseDamage = 15;
@@ -23,12 +21,10 @@ public class LongSword implements Weapon {
 
     @Override
     public boolean canEquip(Character user) {
-        return false; // logica de permissao para equipar
+        if (user.strength < 10) {
+            System.out.println("Força insuficiente para equipar essa arma!");
+            return false;
+        }
+        return true;
     }
-
-    @Override
-    public void attack(Character attacker, List<Character> targets) {
-        System.out.println("atacado"); // logica para dano
-    }
-
 }
