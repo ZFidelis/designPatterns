@@ -30,7 +30,7 @@ public class Battle {
         }
     }
 
-    public void turn() {
-
+    public void calculateStatusEffect() {
+        
     }
 }

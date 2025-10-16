@@ -1,3 +1,5 @@
+import StatusEffect.StatusEffect;
+
 public abstract class Character {
     String name;
     int maxHp;
@@ -8,6 +10,7 @@ public abstract class Character {
     int dexterity;
     int intelligence;
     Weapon equippedWeapon;
+    StatusEffect statusEffect;
 
     Character(String name, int hp, int mp, int str, int dex, int intl) {
         this.name = name;
@@ -26,5 +29,9 @@ public abstract class Character {
         }
         this.equippedWeapon = weapon;
         return true;
+    }
+
+    public void setStatusEffect(StatusEffect statusEffect) {
+        this.statusEffect = statusEffect;
     }
 }
