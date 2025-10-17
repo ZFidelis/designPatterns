@@ -1,3 +1,5 @@
+import StatusEffect.Burning;
+
 public class ArcaneStaff implements Weapon {
     String name = "Cajado Arcano";
     int baseDamage = 8;
@@ -26,5 +28,10 @@ public class ArcaneStaff implements Weapon {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public SpecialAttack specialAttack() {
+        return new SpecialAttack(this.baseDamage, false, new Burning(), 100);
     }
 }

@@ -27,4 +27,9 @@ public class ShadowDagger implements Weapon {
         }
         return true;
     }
+
+    @Override
+    public SpecialAttack specialAttack() {
+        return new SpecialAttack((this.baseDamage * 3), false, null, 0);
+    }
 }

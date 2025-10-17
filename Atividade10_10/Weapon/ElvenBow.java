@@ -1,3 +1,5 @@
+import StatusEffect.Stun;
+
 public class ElvenBow implements Weapon {
     String name = "Arco Élfico";
     int baseDamage = 12;
@@ -25,5 +27,10 @@ public class ElvenBow implements Weapon {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public SpecialAttack specialAttack() {
+        return new SpecialAttack(this.baseDamage, true, null, 0);
     }
 }

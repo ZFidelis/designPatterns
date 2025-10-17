@@ -1,7 +1,7 @@
 package StatusEffect;
 
 public class Stun extends StatusEffect {
-    public Stun(int duration, int damage, boolean stun) {
+    public Stun() {
         super(1, 0, true);
     }
 }

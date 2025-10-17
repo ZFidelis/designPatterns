@@ -1,3 +1,5 @@
+import StatusEffect.Stun;
+
 public class HolyHammer implements Weapon {
     String name = "Martelo Sagrado";
     int baseDamage = 14;
@@ -26,5 +28,10 @@ public class HolyHammer implements Weapon {
         }
         System.out.println("Você não é digno de equipar essa arma!");
         return false;
+    }
+
+    @Override
+    public SpecialAttack specialAttack() {
+        return new SpecialAttack(this.baseDamage, false, new Stun(), 50);
     }
 }

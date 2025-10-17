@@ -3,4 +3,5 @@ public interface Weapon {
     int getBaseDamage();
     int getManaCost();
     boolean canEquip(Character user);
+    SpecialAttack specialAttack();
 }

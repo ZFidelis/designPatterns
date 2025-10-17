@@ -1,3 +1,5 @@
+import StatusEffect.Bleeding;
+
 public class LongSword implements Weapon {
     String name = "Espada Longa";
     int baseDamage = 15;
@@ -26,5 +28,10 @@ public class LongSword implements Weapon {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public SpecialAttack specialAttack() {
+        return new SpecialAttack(this.baseDamage, false, new Bleeding(), 30);
     }
 }

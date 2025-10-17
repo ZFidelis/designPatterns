@@ -1,3 +1,5 @@
+import StatusEffect.Stun;
+
 public class WarAxe implements Weapon {
     String name = "Machado de Guerra";
     int baseDamage = 18;
@@ -26,5 +28,10 @@ public class WarAxe implements Weapon {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public SpecialAttack specialAttack() {
+        return new SpecialAttack(this.baseDamage, false, new Stun(), 25);
     }
 }

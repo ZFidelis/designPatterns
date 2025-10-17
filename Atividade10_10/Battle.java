@@ -1,6 +1,10 @@
 import java.util.List;
+import java.util.Random;
 
 public class Battle {
+
+    public Random random = new Random();
+
     String targetsName;
 
     public void attack(Character attacker, List<Character> targets) {
@@ -30,7 +34,15 @@ public class Battle {
         }
     }
 
-    public void calculateStatusEffect() {
-        
+    public void specialAttack(Character attacker, List<Character> targets) {
+        Weapon weapon = attacker.equippedWeapon;
+        SpecialAttack spAtk = weapon.specialAttack();
+        for (Character target : targets) {
+            if (spAtk.statusEffect != null) {
+                // precisa usar a chance de aplicar o status
+                int roll = random.nextInt(1);
+                target.setStatusEffect(spAtk.statusEffect);
+            }
+        }
     }
 }
