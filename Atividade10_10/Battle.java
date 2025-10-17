@@ -31,18 +31,44 @@ public class Battle {
                 System.out.println("O inimigo: " + target.name + " morreu!");
             }
             System.out.println("\n");
+            break;
         }
     }
 
     public void specialAttack(Character attacker, List<Character> targets) {
         Weapon weapon = attacker.equippedWeapon;
+        
+        if (weapon == null) {
+            System.out.println("Impossível atacar sem uma arma equipada");
+            return;
+        }
+
         SpecialAttack spAtk = weapon.specialAttack();
+
         for (Character target : targets) {
             if (spAtk.statusEffect != null) {
-                // precisa usar a chance de aplicar o status
-                int roll = random.nextInt(1);
-                target.setStatusEffect(spAtk.statusEffect);
+                int roll = random.nextInt(100);
+                if (roll < spAtk.statusEffectChance) {
+                    target.setStatusEffect(spAtk.statusEffect);
+                    System.out.println("Efeito de " + spAtk.statusEffect + " foi aplicado no inimigo: " + target.name);
+                }
             }
+            target.hp = target.hp - weapon.getBaseDamage();
+            if (!spAtk.isAoE) {
+                System.out.println("Ataque Especial bem sucedido!");
+                break;
+            }
+        }
+    }
+
+    public void enemyAttack(Character attacker, Character target) {
+        int damage = attacker.strength;
+        target.hp = target.hp - damage;
+
+        System.out.println(attacker.name + " causou " + damage + " no " + target.name);
+
+        if (target.hp <= 0) {
+            System.out.println("O " + target.name + " morreu!");
         }
     }
 }

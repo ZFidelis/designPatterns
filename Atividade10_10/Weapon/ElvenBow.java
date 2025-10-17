@@ -1,5 +1,3 @@
-import StatusEffect.Stun;
-
 public class ElvenBow implements Weapon {
     String name = "Arco Élfico";
     int baseDamage = 12;
